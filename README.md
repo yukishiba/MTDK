@@ -13,17 +13,15 @@ MT開発環境構築をdockerで手軽にやりたい
 ### Setup
 
 ```
-git clone https://github.com/takeyuweb/MTDK.git myproject
+git clone https://github.com/yukishiba/MTDK.git myproject
 cd myproject
-docker-compose build
+sh setup.sh
 ```
 
 ## Run Servers
 
 ```
 docker-compose up
-mv /path/to/MT-7.0/* data/mt
-cp mt-config.cgi.sample data/mt/mt-config.cgi
 ```
 
 ## URL

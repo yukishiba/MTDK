@@ -2,5 +2,7 @@
 .idea
 data/mt/*
 data/files/*
+ftp-data
+mysql-data
 !**/.gitkeep
 mt.bak

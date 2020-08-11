@@ -30,7 +30,7 @@ services:
       TZ: /usr/share/zoneinfo/Asia/Tokyo
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
-      - mysql-data:/var/lib/mysql
+      - ./mysql-data:/var/lib/mysql
     networks:
       - default
     healthcheck:
