@@ -1,5 +1,5 @@
-FROM php:7.1-apache-jessie
-MAINTAINER Yuichi Takeuchi <yuichi.takeuchi@takeyuweb.co.jp> (@takeyuweb)
+FROM php:7.4-apache-buster
+LABEL maintainer="info@pastelcoder.net"
 
 WORKDIR /
 
@@ -9,7 +9,7 @@ RUN apt-get -y install git
 RUN apt-get -y install build-essential
 RUN apt-get -y install libssl-dev
 RUN apt-get -y install libxml2-dev
-RUN apt-get -y install libmysqlclient-dev
+RUN apt-get -y install default-libmysqlclient-dev
 RUN apt-get -y install cpanminus
 RUN apt-get -y install perlmagick
 
@@ -45,7 +45,8 @@ COPY apache-000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod cgi
 RUN a2enmod rewrite
 
-RUN docker-php-ext-install pdo_mysql mbstring
+RUN apt-get -y install libonig-dev
+RUN docker-php-ext-install pdo_mysql
 COPY php-99-customize.conf /usr/local/etc/php/conf.d/99-customize.conf
 
 WORKDIR /data
